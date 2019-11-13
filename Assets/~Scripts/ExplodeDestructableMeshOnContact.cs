@@ -6,10 +6,10 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 	private void OnDisable()
 	{
 		_runOnce = false;
-		collidersInExplosionRadius.Clear();
+		//collidersInExplosionRadius.Clear();
 	}
 
-	public List<Collider> collidersInExplosionRadius = new List<Collider>();
+	//public List<Collider> collidersInExplosionRadius = new List<Collider>();
 
 	private bool _runOnce;
 
@@ -20,6 +20,8 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 			return;
 
 		// Grab all the colliders in range
+		List<Collider> collidersInExplosionRadius = new List<Collider>();
+
 		collidersInExplosionRadius.AddRange(Physics.OverlapSphere
 			(transform.position, CameraFiresProjectile.Singleton.explosionRadius, LayerMask.Destructable));
 
