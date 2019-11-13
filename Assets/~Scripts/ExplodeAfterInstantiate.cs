@@ -5,10 +5,10 @@ public class ExplodeAfterInstantiate : MonoBehaviour
 {
 	private void OnEnable()
 	{
-		DestructionUpdateManager.projectileHasHitMesh += ExplodeAtEVH;
+		DestructionUpdateManager.projectileHasHitMesh += ApplyExplosionForceToFracturedMeshEVH;
 	}
 
-	private void ExplodeAtEVH(Vector3 contactPoint)
+	private void ApplyExplosionForceToFracturedMeshEVH(Vector3 contactPoint)
 	{
 		var collidersInExplosionRadius = new List<Collider>();
 
@@ -32,6 +32,6 @@ public class ExplodeAfterInstantiate : MonoBehaviour
 		// Unsubscribe immediately after applying the 'explosion force' as this is only required after instantiation (you want
 		// to carry the 'impact' of the projectile to the destructable mesh but it doesn't exist initally. This isn't required
 		// after initalization because the impact has been carried forward via this script
-		DestructionUpdateManager.projectileHasHitMesh -= ExplodeAtEVH;
+		DestructionUpdateManager.projectileHasHitMesh -= ApplyExplosionForceToFracturedMeshEVH;
 	}
 }
