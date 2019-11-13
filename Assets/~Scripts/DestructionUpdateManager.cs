@@ -32,6 +32,7 @@ public class DestructionUpdateManager : MonoBehaviour
 
 	public ContactPoint contactPoint;
 	public bool drawGizmos;
+	public Transform destructableMeshHolder;
 
 	private void OnDrawGizmos()
 	{
