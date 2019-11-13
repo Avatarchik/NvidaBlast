@@ -237,6 +237,7 @@ public class CEditorTestFracture : EditorWindow
         {
             GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/Prefabs/NvidaBlast/Fractured/" + source.name + "_fractured.prefab");
 			p.layer = LayerMask.Destructable;
+			p.AddComponent<ExplodeAfterInstantiate>();
 			// OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab", cs);
 			GameObject fo;
 
