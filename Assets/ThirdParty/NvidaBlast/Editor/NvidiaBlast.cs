@@ -509,6 +509,7 @@ public class NvidiaBlast : EditorWindow
             }
         }
 
+		// This code will remove the CHUNKS from the Hierarchy when you use the 'Create Prefab' button
 		if(makePrefab)
 			CleanUp();
 	}
