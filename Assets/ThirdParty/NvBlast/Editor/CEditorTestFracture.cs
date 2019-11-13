@@ -268,7 +268,7 @@ public class CEditorTestFracture : EditorWindow
             }
 
             // OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/" + source.name + ".prefab", fo);
-			PrefabUtility.SaveAsPrefabAsset(fo, "Assets/Prefabs/NvidaBlast/" + source.name + ".prefab");
+			//PrefabUtility.SaveAsPrefabAsset(fo, "Assets/Prefabs/NvidaBlast/" + source.name + ".prefab");
 			DestroyImmediate(fo);
         }
 
