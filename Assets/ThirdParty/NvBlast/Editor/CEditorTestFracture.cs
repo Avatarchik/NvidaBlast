@@ -188,11 +188,16 @@ public class CEditorTestFracture : EditorWindow
 
         if (makePrefab)
         {
-            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast")) AssetDatabase.CreateFolder("Assets/Prefabs", "NvidaBlast");
-            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Meshes")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidiaBlast", "Meshes");
-            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Fractured")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidiaBlast", "Fractured");
+            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast"))
+				AssetDatabase.CreateFolder("Assets/Prefabs", "NvidaBlast");
 
-            FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvidiaBlast/Meshes/" + source.name);
+            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Meshes"))
+				AssetDatabase.CreateFolder("Assets/Prefabs/NvidiaBlast", "Meshes");
+
+            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Fractured"))
+				AssetDatabase.CreateFolder("Assets/Prefabs/NvidiaBlast", "Fractured");
+
+            FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvidiaBlast/Meshes" + source.name);
             AssetDatabase.Refresh();
             AssetDatabase.CreateFolder("Assets/Prefabs/NvidiaBlast/Meshes", source.name);
         }
