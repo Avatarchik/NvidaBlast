@@ -235,10 +235,13 @@ public class CEditorTestFracture : EditorWindow
 
         if (makePrefab)
         {
-            GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/Prefabs/NvidaBlast/Fractured/" + source.name + "_fractured.prefab");
+			// OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab", cs);
+			GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/Prefabs/NvidaBlast/Fractured/" + source.name + "_fractured.prefab");
+
+			// Extra code added to make the destructable mesh work with realistic explosion physics
 			p.layer = LayerMask.Destructable;
 			p.AddComponent<ExplodeAfterInstantiate>();
-			// OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab", cs);
+			
 			GameObject fo;
 
             bool skinnedMesh = false;
