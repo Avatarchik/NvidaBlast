@@ -714,6 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawGizmos: 1
+  destructableMeshHolder: {fileID: 1036815546}
 --- !u!4 &795003221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2951985931795447056, guid: 6dc575313c1fc5a4fae96c7f72aac1c8,
