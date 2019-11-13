@@ -21,7 +21,7 @@ public class CameraFiresProjectile : MonoBehaviour
 	public float initalUpwardsForce = 10f;
 
 	[Header("Fracture Impact Settings")] 
-	public float explosionForce = 300f;
+	public float fracturedExplosionForce = 300f;
 	public float explosionRadius = 2.2f;
 	public float upwardsForce = 20f;
 
