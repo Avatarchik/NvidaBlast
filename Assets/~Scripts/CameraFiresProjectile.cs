@@ -31,7 +31,8 @@ public class CameraFiresProjectile : MonoBehaviour
 		// If we hit something, instantiate the projectile, make it look at the hit point and acclerate it
 		if (Physics.Raycast(ray, out RaycastHit hit))
 		{
-			var projectileInstance = Instantiate(projectilePrefab, Camera.main.transform.position, Quaternion.identity);
+			var projectileInstance = PoolManager.Singleton.InstantiateFromPool
+				(projectilePrefab.name, Camera.main.transform.position, Quaternion.identity);
 
 			projectileInstance.transform.LookAt(hit.point);
 
