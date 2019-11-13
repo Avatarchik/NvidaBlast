@@ -8,7 +8,7 @@ public class Destructible : MonoBehaviour
 
 	public void EnableDestructablePhysics()
 	{
-		Instantiate(fracturedPrefab, transform.position, transform.rotation);
+		Instantiate(fracturedPrefab, DestructionUpdateManager.Singleton.destructableMeshHolder.position, transform.rotation);
 		Destroy(transform.gameObject);
 	}
 }
