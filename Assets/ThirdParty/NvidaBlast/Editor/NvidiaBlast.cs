@@ -243,6 +243,7 @@ public class NvidiaBlast : EditorWindow
 			// Assign the layer to the children (debris)
 			p.ApplyToChildren(child => child.layer = LayerMask.AssignDestructable);
 			p.AddComponent<ExplodeAfterInstantiate>();
+			// Assign the fractured prefab to the 'normal' prefab
 			source.GetComponent<Destructible>().fracturedPrefab = p;
 
 			GameObject fo;
