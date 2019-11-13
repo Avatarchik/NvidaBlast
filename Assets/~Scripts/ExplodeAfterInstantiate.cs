@@ -25,7 +25,7 @@ public class ExplodeAfterInstantiate : MonoBehaviour
 						CameraFiresProjectile.Singleton.initalExplosionForce, 
 						contactPoint, 
 						CameraFiresProjectile.Singleton.explosionRadius, 
-						CameraFiresProjectile.Singleton.upwardsForce - CameraFiresProjectile.Singleton.upwardsForceReduction
+						CameraFiresProjectile.Singleton.initalUpwardsForce
 					);
 		}
 

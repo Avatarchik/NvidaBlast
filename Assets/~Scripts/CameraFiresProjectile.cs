@@ -21,7 +21,7 @@ public class CameraFiresProjectile : MonoBehaviour
 
 	[Header("Inital Debris Force Reduction")]	// This is required to balance the look and feel of the inital damage
 	public float initalExplosionForce = 200f;
-	public float upwardsForceReduction = 10f;
+	public float initalUpwardsForce = 10f;
 
 	public GameObject projectilePrefab;
 
