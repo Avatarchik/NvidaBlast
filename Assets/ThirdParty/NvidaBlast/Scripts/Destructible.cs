@@ -12,6 +12,6 @@ public class Destructible : MonoBehaviour
 		// Set the parent to the destructableMeshHolder to keep the Hierarchy neat
 		fracturedMeshInstance.transform.parent = DestructionUpdateManager.Singleton.destructableMeshHolder;
 		// Remove the original non-fractured mesh
-		Destroy(transform.gameObject);
+		Destroy(gameObject);
 	}
 }
