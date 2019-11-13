@@ -192,9 +192,9 @@ public class CEditorTestFracture : EditorWindow
             if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Meshes")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidiaBlast", "Meshes");
             if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Fractured")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidiaBlast", "Fractured");
 
-            FileUtil.DeleteFileOrDirectory("Assets/NvBlast Prefabs/Meshes/" + source.name);
+            FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvidiaBlast/Meshes/" + source.name);
             AssetDatabase.Refresh();
-            AssetDatabase.CreateFolder("Assets/NvBlast Prefabs/Meshes", source.name);
+            AssetDatabase.CreateFolder("Assets/Prefabs/NvidiaBlast/Meshes", source.name);
         }
 
         for (int i = 1; i < fractureTool.getChunkCount(); i++)
@@ -219,7 +219,7 @@ public class CEditorTestFracture : EditorWindow
 
             if (makePrefab)
             {
-                AssetDatabase.CreateAsset(m, "Assets/NvBlast Prefabs/Meshes/" + source.name + "/Chunk" + i + ".asset");
+                AssetDatabase.CreateAsset(m, "Assets/Prefabs/NvidiaBlast/Meshes/" + source.name + "/Chunk" + i + ".asset");
             }
 
             if (!makePrefab) ck.AddComponent<ChunkInfo>();
@@ -235,7 +235,7 @@ public class CEditorTestFracture : EditorWindow
 
         if (makePrefab)
         {
-            GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab");
+            GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/Prefabs/NvidiaBlast/Fractured/" + source.name + "_fractured.prefab");
 			// OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab", cs);
 			GameObject fo;
 
@@ -268,7 +268,7 @@ public class CEditorTestFracture : EditorWindow
             }
 
             // OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/" + source.name + ".prefab", fo);
-			PrefabUtility.SaveAsPrefabAsset(fo, "Assets/NvBlast Prefabs/" + source.name + ".prefab");
+			PrefabUtility.SaveAsPrefabAsset(fo, "Assets/Prefabs/NvidiaBlast" + source.name + ".prefab");
 			DestroyImmediate(fo);
         }
 
