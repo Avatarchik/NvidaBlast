@@ -240,7 +240,7 @@ public class CEditorTestFracture : EditorWindow
 
 			// Extra code added to make the destructable mesh work with realistic explosion physics
 			p.layer = LayerMask.AssignDestructable;
-			// Assign to children
+			// Assign the layer to the children (debris)
 			p.ApplyToChildren(child => child.layer = LayerMask.AssignDestructable);
 			p.AddComponent<ExplodeAfterInstantiate>();
 			
