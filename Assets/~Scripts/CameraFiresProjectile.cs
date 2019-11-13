@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class CameraFiresProjectile : MonoBehaviour 
 {
@@ -38,6 +39,15 @@ public class CameraFiresProjectile : MonoBehaviour
 
 			var rigidbody = projectileInstance.GetComponent<Rigidbody>();
 			rigidbody.AddForce(projectileInstance.transform.forward * rigidbody.mass * projectileSpeed * 100);
+
+			// Set a time limit for the projectiles deactivation
+			StartCoroutine(SetTimeLimitCO(projectileInstance));
 		}
+	}
+
+	private IEnumerator SetTimeLimitCO(GameObject projectileInstance)
+	{
+		yield return new WaitForSeconds(3f);
+		projectileInstance.SetActive(false);
 	}
 }
