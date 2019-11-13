@@ -22,7 +22,7 @@ public class CameraFiresProjectile : MonoBehaviour
 
 	[Header("Fracture Impact Settings")] 
 	public float fracturedExplosionForce = 300f;
-	public float explosionRadius = 2.2f;
+	public float fracturedExplosionRadius = 2.2f;
 	public float upwardsForce = 20f;
 
 	public GameObject projectilePrefab;

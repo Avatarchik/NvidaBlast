@@ -43,6 +43,6 @@ public class DestructionUpdateManager : MonoBehaviour
 			return;
 
 		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(contact.point, CameraFiresProjectile.Singleton.explosionRadius);
+		Gizmos.DrawWireSphere(contact.point, CameraFiresProjectile.Singleton.fracturedExplosionRadius);
 	}
 }

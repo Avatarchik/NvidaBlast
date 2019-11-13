@@ -22,7 +22,7 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 		var collidersInExplosionRadius = new List<Collider>();
 
 		collidersInExplosionRadius.AddRange(Physics.OverlapSphere
-			(transform.position, CameraFiresProjectile.Singleton.explosionRadius, LayerMask.Destructable));
+			(transform.position, CameraFiresProjectile.Singleton.fracturedExplosionRadius, LayerMask.Destructable));
 
 		// For each colider apply the explsion force to their rigidbody
 		foreach (var collider in collidersInExplosionRadius)
@@ -38,7 +38,7 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 			if (collider != null && collider.attachedRigidbody != null)
 			{
 				collider.attachedRigidbody.AddExplosionForce(CameraFiresProjectile.Singleton.fracturedExplosionForce,
-					DestructionUpdateManager.Singleton.contact.point, CameraFiresProjectile.Singleton.explosionRadius,
+					DestructionUpdateManager.Singleton.contact.point, CameraFiresProjectile.Singleton.fracturedExplosionRadius,
 					CameraFiresProjectile.Singleton.upwardsForce);
 			}
 		}

@@ -15,7 +15,7 @@ public class ExplodeAfterInstantiate : MonoBehaviour
 		// This Physics.Overlap only takes in objects that are on the 'Destructable' layer mask, meaning you will 
 		// have to set the object prefabs AND their fractured prefabs to 'Destructable' (allows debris to blow up)
 		collidersInExplosionRadius.AddRange(Physics.OverlapSphere
-			(contactPoint, CameraFiresProjectile.Singleton.explosionRadius, LayerMask.Destructable));
+			(contactPoint, CameraFiresProjectile.Singleton.fracturedExplosionRadius, LayerMask.Destructable));
 
 		foreach (var collider in collidersInExplosionRadius)
 		{
@@ -24,7 +24,7 @@ public class ExplodeAfterInstantiate : MonoBehaviour
 					(
 						CameraFiresProjectile.Singleton.initalExplosionForce, 
 						contactPoint, 
-						CameraFiresProjectile.Singleton.explosionRadius, 
+						CameraFiresProjectile.Singleton.fracturedExplosionRadius, 
 						CameraFiresProjectile.Singleton.initalUpwardsForce
 					);
 		}
