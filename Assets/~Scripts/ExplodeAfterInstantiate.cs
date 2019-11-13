@@ -19,8 +19,9 @@ public class ExplodeAfterInstantiate : MonoBehaviour
 			(contactPoint, CameraFiresProjectile.Singleton.explosionRadius, LayerMask.Destructable));
 
 		foreach (var collider in collidersInExplosionRadius)
-		{ 
-			if(collider.GetComponent<Rigidbody>() != null)
+		{
+			print("ExplodeAtEVH");
+			if (collider.GetComponent<Rigidbody>() != null)
 				collider.GetComponent<Rigidbody>().AddExplosionForce
 					(
 						CameraFiresProjectile.Singleton.explosionForce - CameraFiresProjectile.Singleton.explosionReduction, 
