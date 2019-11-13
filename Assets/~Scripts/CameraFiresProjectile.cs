@@ -18,6 +18,7 @@ public class CameraFiresProjectile : MonoBehaviour
 
 	[Header("Inital Impact Settings")]  // This is required to balance the look and feel of the inital damage
 	public float initalExplosionForce = 200f;
+	public float initalExplosionRadius = 1.1f;
 	public float initalUpwardsForce = 10f;
 
 	[Header("Fracture Impact Settings")] 
