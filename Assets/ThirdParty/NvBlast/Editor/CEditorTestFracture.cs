@@ -101,7 +101,7 @@ public class CEditorTestFracture : EditorWindow
         previewDistance = EditorGUILayout.Slider("Preview", previewDistance, 0, 5);
         if (EditorGUI.EndChangeCheck())
         {
-            UpdatePreview();
+            UpdatePreview(false);
         }
 
         bool canCreate = false;
