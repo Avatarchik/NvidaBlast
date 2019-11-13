@@ -8,6 +8,7 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 		_runOnce = false;
 		transform.position = Vector3.zero;
 		transform.rotation = Quaternion.identity;
+		GetComponent<Rigidbody>().velocity = 0;
 		//collidersInExplosionRadius.Clear();
 	}
 
