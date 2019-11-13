@@ -295,12 +295,14 @@ public class CEditorTestFracture : EditorWindow
 
     private void _Slicing(NvFractureTool fractureTool, NvMesh mesh)
     {
-        SlicingConfiguration conf = new SlicingConfiguration();
-        conf.slices = slices;
-        conf.offset_variations = offset_variations;
-        conf.angle_variations = angle_variations;
+		SlicingConfiguration conf = new SlicingConfiguration
+		{
+			slices = slices,
+			offset_variations = offset_variations,
+			angle_variations = angle_variations
+		};
 
-        conf.noise.amplitude = amplitude;
+		conf.noise.amplitude = amplitude;
         conf.noise.frequency = frequency;
         conf.noise.octaveNumber = octaveNumber;
         conf.noise.surfaceResolution = surfaceResolution;
