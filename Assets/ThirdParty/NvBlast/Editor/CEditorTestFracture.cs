@@ -235,9 +235,9 @@ public class CEditorTestFracture : EditorWindow
 
         if (makePrefab)
         {
-            GameObject p = PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab", cs);
-
-            GameObject fo;
+            GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab");
+			// OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab", cs);
+			GameObject fo;
 
             bool skinnedMesh = false;
             if (source.GetComponent<SkinnedMeshRenderer>() != null) skinnedMesh = true;
