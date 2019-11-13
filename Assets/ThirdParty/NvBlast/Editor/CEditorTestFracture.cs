@@ -507,5 +507,7 @@ public class CEditorTestFracture : EditorWindow
                 ci.UpdatePreview(previewDistance);
             }
         }
-    }
+
+		CleanUp();
+	}
 }
