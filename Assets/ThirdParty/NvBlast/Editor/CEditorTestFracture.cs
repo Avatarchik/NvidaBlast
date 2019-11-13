@@ -281,7 +281,7 @@ public class CEditorTestFracture : EditorWindow
 
         cs.transform.rotation = source.transform.rotation;
 
-        UpdatePreview();
+        UpdatePreview(makePrefab);
 	}
 
     private void _Cutout(NvFractureTool fractureTool, NvMesh mesh)
@@ -492,7 +492,7 @@ public class CEditorTestFracture : EditorWindow
         GameObject.DestroyImmediate(GameObject.Find("CHUNKS"));
     }
 
-    private void UpdatePreview()
+    private void UpdatePreview(bool makePrefab)
     {
         GameObject cs = GameObject.Find("CHUNKS");
         if (cs == null) return;
@@ -508,6 +508,7 @@ public class CEditorTestFracture : EditorWindow
             }
         }
 
-		CleanUp();
+		if(!makePrefab)
+			CleanUp();
 	}
 }
