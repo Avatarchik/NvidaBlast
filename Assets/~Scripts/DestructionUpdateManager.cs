@@ -24,7 +24,7 @@ public class DestructionUpdateManager : MonoBehaviour
 
 	public IEnumerator UpdateDestructionCO()
 	{
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForEndOfFrame();
 
 		if (projectileHasHitMesh != null)
 			projectileHasHitMesh(contactPoint.point);
