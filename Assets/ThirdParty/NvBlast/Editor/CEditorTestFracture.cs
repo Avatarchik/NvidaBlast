@@ -508,7 +508,7 @@ public class CEditorTestFracture : EditorWindow
             }
         }
 
-		if(!makePrefab)
+		if(makePrefab)
 			CleanUp();
 	}
 }
