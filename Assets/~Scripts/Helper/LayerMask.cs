@@ -13,4 +13,6 @@ public static class LayerMask
 	// User Layers
 	// Add your own LayerMasks here, '[LayerName] = 1 << [layerNumber]', use the layerNumber in the Editor
 	public static int Destructable = 1 << 8;
+
+	public static int AssignDestructable = 8;
 }
