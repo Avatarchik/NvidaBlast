@@ -22,7 +22,7 @@ public class ExplodeAfterInstantiate : MonoBehaviour
 			if (collider.GetComponent<Rigidbody>() != null)
 				collider.GetComponent<Rigidbody>().AddExplosionForce
 					(
-						CameraFiresProjectile.Singleton.explosionForce - CameraFiresProjectile.Singleton.explosionReduction, 
+						CameraFiresProjectile.Singleton.initalExplosionForce, 
 						contactPoint, 
 						CameraFiresProjectile.Singleton.explosionRadius, 
 						CameraFiresProjectile.Singleton.upwardsForce - CameraFiresProjectile.Singleton.upwardsForceReduction
