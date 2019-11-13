@@ -192,7 +192,7 @@ public class CEditorTestFracture : EditorWindow
             if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Chunks")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Chunks");
             if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Fractured")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Fractured");
 
-            FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvidaBlast/Chunks/" + source.name);
+			FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvidaBlast/Chunks/" + source.name);
             AssetDatabase.Refresh();
             AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast/Chunks", source.name);
         }
