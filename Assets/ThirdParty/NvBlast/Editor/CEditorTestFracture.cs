@@ -240,6 +240,7 @@ public class CEditorTestFracture : EditorWindow
 
 			// Extra code added to make the destructable mesh work with realistic explosion physics
 			p.layer = LayerMask.Destructable;
+			p.ApplyToChildren(child => child.layer = LayerMask.Destructable);
 			p.AddComponent<ExplodeAfterInstantiate>();
 			
 			GameObject fo;
