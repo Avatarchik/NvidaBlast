@@ -49,6 +49,7 @@ public class CameraFiresProjectile : MonoBehaviour
 	{
 		yield return new WaitForSeconds(3f);
 
+		// If the projectile is still active then deactivate it
 		if(projectileInstance.activeInHierarchy)
 			projectileInstance.SetActive(false);
 	}
