@@ -135,13 +135,10 @@ public class CEditorTestFracture : EditorWindow
 
         CleanUp();
 
-		if (!makePrefab)
-		{
-			GameObject cs = new GameObject("CHUNKS");
-			cs.transform.position = Vector3.zero;
-			cs.transform.rotation = Quaternion.identity;
-			cs.transform.localScale = Vector3.one;
-		}
+        GameObject cs = new GameObject("CHUNKS");
+        cs.transform.position = Vector3.zero;
+        cs.transform.rotation = Quaternion.identity;
+        cs.transform.localScale = Vector3.one;
 
         Mesh ms = null;
 
@@ -285,7 +282,8 @@ public class CEditorTestFracture : EditorWindow
         cs.transform.rotation = source.transform.rotation;
 
         UpdatePreview();
-    }
+		CleanUp();
+	}
 
     private void _Cutout(NvFractureTool fractureTool, NvMesh mesh)
     {
