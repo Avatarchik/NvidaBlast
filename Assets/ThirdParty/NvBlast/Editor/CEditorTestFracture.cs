@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-public class CEditorTestFracture : EditorWindow
+public class NvidiaBlast : EditorWindow
 {
     private enum FractureTypes
     {
@@ -16,7 +16,7 @@ public class CEditorTestFracture : EditorWindow
     [MenuItem("Nvida Blast/Fracture")]
     public static void OpenEditor()
     {
-        EditorWindow.GetWindow<CEditorTestFracture>("Fracture");
+        EditorWindow.GetWindow<NvidiaBlast>("Fracture");
     }
 
     private FractureTypes fractureType = FractureTypes.Voronoi;
