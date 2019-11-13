@@ -267,8 +267,9 @@ public class CEditorTestFracture : EditorWindow
                 }
             }
 
-            PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/" + source.name + ".prefab", fo);
-            DestroyImmediate(fo);
+            // OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/" + source.name + ".prefab", fo);
+			PrefabUtility.SaveAsPrefabAsset(fo, "Assets/NvBlast Prefabs/" + source.name + ".prefab");
+			DestroyImmediate(fo);
         }
 
         cs.transform.rotation = source.transform.rotation;
