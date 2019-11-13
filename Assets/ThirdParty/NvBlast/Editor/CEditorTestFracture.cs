@@ -135,10 +135,13 @@ public class CEditorTestFracture : EditorWindow
 
         CleanUp();
 
-        GameObject cs = new GameObject("CHUNKS");
-        cs.transform.position = Vector3.zero;
-        cs.transform.rotation = Quaternion.identity;
-        cs.transform.localScale = Vector3.one;
+		if (!makePrefab)
+		{
+			GameObject cs = new GameObject("CHUNKS");
+			cs.transform.position = Vector3.zero;
+			cs.transform.rotation = Quaternion.identity;
+			cs.transform.localScale = Vector3.one;
+		}
 
         Mesh ms = null;
 
