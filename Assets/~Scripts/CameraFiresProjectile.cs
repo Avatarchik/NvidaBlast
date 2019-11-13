@@ -26,6 +26,7 @@ public class CameraFiresProjectile : MonoBehaviour
 	public float fracturedExplosionRadius = 3f;
 	public float fracturedUpwardsForce = 20f;
 
+	[Header("Reference Links")]
 	public GameObject projectilePrefab;
 
 	public void FireProjectile()
