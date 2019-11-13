@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class ExplodeDestructableMeshOnContact : MonoBehaviour
 {
+	private void OnDisable()
+	{
+		_runOnce = false;
+	}
+
 	public List<Collider> collidersInExplosionRadius = new List<Collider>();
 
 	private bool _runOnce;
