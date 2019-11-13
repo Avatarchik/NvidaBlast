@@ -27,10 +27,10 @@ public class DestructionUpdateManager : MonoBehaviour
 		yield return new WaitForEndOfFrame();
 
 		if (projectileHasHitMesh != null)
-			projectileHasHitMesh(contactPoint.point);
+			projectileHasHitMesh(contact.point);
 	}
 
-	public ContactPoint contactPoint;
+	public ContactPoint contact;
 	public bool drawGizmos;
 	public Transform destructableMeshHolder;
 
@@ -42,6 +42,6 @@ public class DestructionUpdateManager : MonoBehaviour
 			return;
 
 		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(contactPoint.point, CameraFiresProjectile.Singleton.explosionRadius);
+		Gizmos.DrawWireSphere(contact.point, CameraFiresProjectile.Singleton.explosionRadius);
 	}
 }
