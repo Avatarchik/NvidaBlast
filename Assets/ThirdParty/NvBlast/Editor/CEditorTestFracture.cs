@@ -13,7 +13,7 @@ public class CEditorTestFracture : EditorWindow
         Cutout
     }
 
-    [MenuItem("Test/Fracture")]
+    [MenuItem("Nvida Blast/Fracture")]
     public static void OpenEditor()
     {
         EditorWindow.GetWindow<CEditorTestFracture>("Fracture");
