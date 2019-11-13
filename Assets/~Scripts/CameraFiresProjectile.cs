@@ -48,6 +48,8 @@ public class CameraFiresProjectile : MonoBehaviour
 	private IEnumerator SetTimeLimitCO(GameObject projectileInstance)
 	{
 		yield return new WaitForSeconds(3f);
-		projectileInstance.SetActive(false);
+
+		if(projectileInstance.activeInHierarchy)
+			projectileInstance.SetActive(false);
 	}
 }
