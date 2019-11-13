@@ -189,12 +189,12 @@ public class CEditorTestFracture : EditorWindow
         if (makePrefab)
         {
             if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast")) AssetDatabase.CreateFolder("Assets/Prefabs", "NvidaBlast");
-            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Meshes")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Meshes");
+            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Chunks")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Chunks");
             if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Fractured")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Fractured");
 
-            FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvidaBlast/Meshes/" + source.name);
+            FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvidaBlast/Chunks/" + source.name);
             AssetDatabase.Refresh();
-            AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast/Meshes", source.name);
+            AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast/Chunks", source.name);
         }
 
         for (int i = 1; i < fractureTool.getChunkCount(); i++)
@@ -219,7 +219,7 @@ public class CEditorTestFracture : EditorWindow
 
             if (makePrefab)
             {
-                AssetDatabase.CreateAsset(m, "Assets/Prefabs/NvidaBlast/Meshes/" + source.name + "/Chunk" + i + ".asset");
+                AssetDatabase.CreateAsset(m, "Assets/Prefabs/NvidaBlast/Chunks/" + source.name + "/Chunk" + i + ".asset");
             }
 
             if (!makePrefab) ck.AddComponent<ChunkInfo>();
