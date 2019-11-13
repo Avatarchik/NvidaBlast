@@ -6,6 +6,7 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 	private void OnDisable()
 	{
 		_runOnce = false;
+		collidersInExplosionRadius.Clear();
 	}
 
 	public List<Collider> collidersInExplosionRadius = new List<Collider>();
@@ -39,8 +40,6 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 		}
 
 		_runOnce = true;
-		// TODO: Object Pool
-		// Set the projectile to disappear (you will have to change this out for an object pool later on)
 		DestructionUpdateManager.Singleton.UpdateDestruction();
 		gameObject.SetActive(false);
 	}
