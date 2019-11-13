@@ -282,7 +282,6 @@ public class CEditorTestFracture : EditorWindow
         cs.transform.rotation = source.transform.rotation;
 
         UpdatePreview();
-		CleanUp();
 	}
 
     private void _Cutout(NvFractureTool fractureTool, NvMesh mesh)
