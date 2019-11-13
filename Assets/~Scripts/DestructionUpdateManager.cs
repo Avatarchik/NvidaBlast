@@ -35,7 +35,9 @@ public class DestructionUpdateManager : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-		if (!drawGizmos)
+		// This will return if the bool is false or if you are currently not in playmode (for some reason unity will spam
+		// null reference errors for the gizmo until you enter playmode
+		if (!drawGizmos || !Application.isPlaying)
 			return;
 
 		Gizmos.color = Color.red;
