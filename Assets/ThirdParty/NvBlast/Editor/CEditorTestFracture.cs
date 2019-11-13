@@ -188,13 +188,13 @@ public class CEditorTestFracture : EditorWindow
 
         if (makePrefab)
         {
-            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvBlast Prefabs")) AssetDatabase.CreateFolder("Assets/Prefabs", "NvBlast Prefabs");
-            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvBlast Prefabs/Meshes")) AssetDatabase.CreateFolder("Assets/Prefabs/NvBlast Prefabs", "Meshes");
-            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvBlast Prefabs/Fractured")) AssetDatabase.CreateFolder("Assets/Prefabs/NvBlast Prefabs", "Fractured");
+            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast")) AssetDatabase.CreateFolder("Assets/Prefabs", "NvidaBlast");
+            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Meshes")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Meshes");
+            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Fractured")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Fractured");
 
-            FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvBlast Prefabs/Meshes/" + source.name);
+            FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvidaBlast/Meshes/" + source.name);
             AssetDatabase.Refresh();
-            AssetDatabase.CreateFolder("Assets/Prefabs/NvBlast Prefabs/Meshes", source.name);
+            AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast/Meshes", source.name);
         }
 
         for (int i = 1; i < fractureTool.getChunkCount(); i++)
@@ -219,7 +219,7 @@ public class CEditorTestFracture : EditorWindow
 
             if (makePrefab)
             {
-                AssetDatabase.CreateAsset(m, "Assets/Prefabs/NvBlast Prefabs/Meshes/" + source.name + "/Chunk" + i + ".asset");
+                AssetDatabase.CreateAsset(m, "Assets/Prefabs/NvidaBlast/Meshes/" + source.name + "/Chunk" + i + ".asset");
             }
 
             if (!makePrefab) ck.AddComponent<ChunkInfo>();
@@ -235,7 +235,7 @@ public class CEditorTestFracture : EditorWindow
 
         if (makePrefab)
         {
-            GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/Prefabs/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab");
+            GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/Prefabs/NvidaBlast/Fractured/" + source.name + "_fractured.prefab");
 			// OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab", cs);
 			GameObject fo;
 
@@ -268,7 +268,7 @@ public class CEditorTestFracture : EditorWindow
             }
 
             // OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/" + source.name + ".prefab", fo);
-			PrefabUtility.SaveAsPrefabAsset(fo, "Assets/Prefabs/NvBlast Prefabs/" + source.name + ".prefab");
+			PrefabUtility.SaveAsPrefabAsset(fo, "Assets/Prefabs/NvidaBlast/" + source.name + ".prefab");
 			DestroyImmediate(fo);
         }
 
