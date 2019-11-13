@@ -276,6 +276,7 @@ public class NvidiaBlast : EditorWindow
             }
 
             // OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/" + source.name + ".prefab", fo);
+			// This saves out an unessacary prefab so I have commented it out
 			//PrefabUtility.SaveAsPrefabAsset(fo, "Assets/Prefabs/NvidaBlast/" + source.name + ".prefab");
 			DestroyImmediate(fo);
         }
