@@ -33,6 +33,8 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 			if (collider.GetComponent<Destructible>() != null)
 				collider.GetComponent<Destructible>().EnableDestructablePhysics();
 
+			// This code will effect the debris lying on the ground, it doesn't effect the fractured mesh that will be
+			// instantiated in the next frame
 			if (collider != null && collider.attachedRigidbody != null)
 			{
 				collider.attachedRigidbody.AddExplosionForce(CameraFiresProjectile.Singleton.explosionForce,
