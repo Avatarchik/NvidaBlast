@@ -6,13 +6,9 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 	private void OnDisable()
 	{
 		_runOnce = false;
-		//transform.position = Vector3.zero;
-		//transform.rotation = Quaternion.identity;
-		GetComponent<Rigidbody>().velocity = Vector3.zero;
-		//collidersInExplosionRadius.Clear();
-	}
 
-	//public List<Collider> collidersInExplosionRadius = new List<Collider>();
+		GetComponent<Rigidbody>().velocity = Vector3.zero;
+	}
 
 	private bool _runOnce;
 
