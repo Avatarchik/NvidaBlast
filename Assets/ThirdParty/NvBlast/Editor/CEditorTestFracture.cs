@@ -239,8 +239,8 @@ public class CEditorTestFracture : EditorWindow
 			GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/Prefabs/NvidaBlast/Fractured/" + source.name + "_fractured.prefab");
 
 			// Extra code added to make the destructable mesh work with realistic explosion physics
-			p.layer = LayerMask.Destructable;
-			p.ApplyToChildren(child => child.layer = LayerMask.Destructable);
+			p.layer = LayerMask.AssignDestructable;
+			p.ApplyToChildren(child => child.layer = LayerMask.AssignDestructable);
 			p.AddComponent<ExplodeAfterInstantiate>();
 			
 			GameObject fo;
