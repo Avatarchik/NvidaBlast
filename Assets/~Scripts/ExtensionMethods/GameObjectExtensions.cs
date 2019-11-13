@@ -7,10 +7,12 @@ public static class GameObjectExtensions
 {
 	public static void ApplyToChildren(this GameObject gameObject, Action<GameObject> action)
 	{
-		if (gameObject == null) return;
-		foreach (var trans in gameObject.GetComponentsInChildren<Transform>(true))
+		if (gameObject == null)
+			return;
+
+		foreach (var transform in gameObject.GetComponentsInChildren<Transform>(true))
 		{
-			action(trans.gameObject);
+			action(transform.gameObject);
 		}
 	}
 
