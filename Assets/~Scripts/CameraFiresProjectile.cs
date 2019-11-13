@@ -17,9 +17,9 @@ public class CameraFiresProjectile : MonoBehaviour
 	public float projectileSpeed = 25f;     // Any faster than 40 and you will have problems with collision detection
 
 	[Header("Inital Impact Settings")]  // This is required to balance the look and feel of the inital damage
-	public float initalExplosionForce = 200f;
+	public float initalExplosionForce = 600f;
 	public float initalExplosionRadius = 1.1f;
-	public float initalUpwardsForce = 10f;
+	public float initalUpwardsForce = -1f;
 
 	[Header("Fracture Impact Settings")] 
 	public float fracturedExplosionForce = 300f;
