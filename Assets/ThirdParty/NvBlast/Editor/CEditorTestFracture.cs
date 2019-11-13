@@ -228,7 +228,7 @@ public class CEditorTestFracture : EditorWindow
             {
                 ck.AddComponent<Rigidbody>();
                 MeshCollider mc = ck.AddComponent<MeshCollider>();
-                mc.inflateMesh = true;
+                //mc.inflateMesh = true;
                 mc.convex = true;
             }
         }
