@@ -39,7 +39,7 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 			{
 				collider.attachedRigidbody.AddExplosionForce(CameraFiresProjectile.Singleton.fracturedExplosionForce,
 					DestructionUpdateManager.Singleton.contact.point, CameraFiresProjectile.Singleton.fracturedExplosionRadius,
-					CameraFiresProjectile.Singleton.upwardsForce);
+					CameraFiresProjectile.Singleton.fracturedUpwardsForce);
 			}
 		}
 
