@@ -10,7 +10,6 @@ public class ExplodeAfterInstantiate : MonoBehaviour
 
 	private void ExplodeAtEVH(Vector3 contactPoint)
 	{
-		print("ExplodeAtEVH");
 		var collidersInExplosionRadius = new List<Collider>();
 
 		// This Physics.Overlap only takes in objects that are on the 'Destructable' layer mask, meaning you will 
@@ -20,7 +19,6 @@ public class ExplodeAfterInstantiate : MonoBehaviour
 
 		foreach (var collider in collidersInExplosionRadius)
 		{
-			print("ExplodeAtEVH");
 			if (collider.GetComponent<Rigidbody>() != null)
 				collider.GetComponent<Rigidbody>().AddExplosionForce
 					(
