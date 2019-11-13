@@ -6,7 +6,7 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 	private void OnDisable()
 	{
 		_runOnce = false;
-
+		// You need to reset the velocity of the rigidbody otherwise it carries through when reactivated (object pool)
 		GetComponent<Rigidbody>().velocity = Vector3.zero;
 	}
 
