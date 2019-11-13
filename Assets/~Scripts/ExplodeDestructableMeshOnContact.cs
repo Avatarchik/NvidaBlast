@@ -45,6 +45,8 @@ public class ExplodeDestructableMeshOnContact : MonoBehaviour
 
 		_runOnce = true;
 		DestructionUpdateManager.Singleton.UpdateDestruction();
+
+		// Set the projectile to false because it is used in an object pool
 		gameObject.SetActive(false);
 	}
 

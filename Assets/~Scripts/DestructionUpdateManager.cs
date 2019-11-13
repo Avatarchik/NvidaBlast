@@ -24,6 +24,7 @@ public class DestructionUpdateManager : MonoBehaviour
 
 	public IEnumerator UpdateDestructionCO()
 	{
+		// Wait until the fracture mesh has been instantiated
 		yield return new WaitForEndOfFrame();
 
 		if (projectileHasHitMesh != null)
