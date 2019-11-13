@@ -243,6 +243,7 @@ public class NvidiaBlast : EditorWindow
 			// Assign the layer to the children (debris)
 			p.ApplyToChildren(child => child.layer = LayerMask.AssignDestructable);
 			p.AddComponent<ExplodeAfterInstantiate>();
+			// TODO: Assign the fractured mesh to the corresponding regular mesh in the Hierarchy View
 			
 			GameObject fo;
 
