@@ -1,0 +1,30 @@
+*** This file is formatted for display in the Inspector View ***
+Your PC resolution is 1920x1080
+
+Mobile Portrait
+================
+16:10	(1920x1200)
+16:10	(1680x1050)
+5:3	(1280x768)
+16:9	(1280x720)	<== Thinnest
+4:3	(1024x768)	<== Widest
+3:2	(960x640)
+
+Mobile Landscape
+================
+4:3	(1024x768)	<== Samsung Galaxy Alpha
+16:10	(1920x1200)	<== Samsung Tab 10.1
+
+PC
+================
+16:10	(1280x800)
+5:3	(1280x768)
+16:9	(1280x720)
+16:9	(1920x1080)
+5:4	(1280x1024)
+4:3	(1280x960)
+3:2	(1280x854)
+
+TV
+================
+
