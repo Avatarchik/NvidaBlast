@@ -1,9 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public static class GameObjectExtensions
 {
+	public static void ApplyToChildren(this GameObject gameObject, Action<GameObject> action)
+	{
+		if (gameObject == null) return;
+		foreach (var trans in gameObject.GetComponentsInChildren<Transform>(true))
+		{
+			action(trans.gameObject);
+		}
+	}
+
 	public static T[] GetComponentsInChildrenWithTag<T>(this GameObject gameObject, string tag)
 			where T : Component
 	{
