@@ -12,7 +12,10 @@ public static class LayerMask
 
 	// User Layers
 	// Add your own LayerMasks here, '[LayerName] = 1 << [layerNumber]', use the layerNumber in the Editor
-	public static int Destructable = 1 << 8;
+	public static int HUD = 1 << 8;
+	public static int PopupUI = 1 << 9;
+	public static int Framework = 1 << 10;
+	public static int Destructable = 1 << 11;
 
 	// Assigning Layers
 	// When assigning layers they cannot be bitshifted
@@ -21,5 +24,9 @@ public static class LayerMask
 	public static int AssignIgnoreRaycast = 2;
 	public static int AssignWater = 3;
 	public static int AssignUI = 4;
-	public static int AssignDestructable = 8;
+
+	public static int AssignHUD = 8;
+	public static int AssignPopupUI = 9;
+	public static int AssignFramework = 10;
+	public static int AssignDestructable = 11;
 }
