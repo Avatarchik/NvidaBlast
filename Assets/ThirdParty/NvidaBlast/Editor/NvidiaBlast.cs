@@ -74,6 +74,7 @@ public class NvidiaBlast : EditorWindow
         //GUILayout.Space(20);
         //source = EditorGUILayout.ObjectField("Source", source, typeof(GameObject), true) as GameObject;
 
+		// New Code: Enable the sourceList in the EditorWindow
 		ScriptableObject target = this;
 		SerializedObject serializedObject = new SerializedObject(target);
 		// We add 'sourceList' to our serialized property (the variable must be the same name)
