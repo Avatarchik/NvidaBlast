@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 
-[CustomEditor(typeof(CustomList))]
+[CustomEditor(typeof(CustomListAttribute))]
 
 public class CustomListEditor : Editor
 {
@@ -11,14 +11,14 @@ public class CustomListEditor : Editor
 	enum displayFieldType { DisplayAsAutomaticFields, DisplayAsCustomizableGUIFields }
 	displayFieldType DisplayFieldType;
 
-	CustomList t;
+	CustomListAttribute t;
 	SerializedObject GetTarget;
 	SerializedProperty ThisList;
 	int ListSize;
 	List<bool> toggled = new List<bool>(); // Folded or not
 	void OnEnable()
 	{
-		t = (CustomList)target;
+		t = (CustomListAttribute)target;
 		GetTarget = new SerializedObject(t);
 		ThisList = GetTarget.FindProperty("MyList"); // Find the List in our script and create a refrence of it
 	}
@@ -64,7 +64,7 @@ public class CustomListEditor : Editor
 
 		if (GUILayout.Button("Add New"))
 		{
-			t.MyList.Add(new CustomList.MyClass());
+			t.MyList.Add(new CustomListAttribute.MyClass());
 		}
 
 		EditorGUILayout.Space();
