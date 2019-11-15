@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 
-//[CustomEditor(typeof(MyClass))]
+[CustomEditor(typeof(NvBlastExtUnity))]
 
 public class BoardEditor : Editor
 {
