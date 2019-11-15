@@ -147,7 +147,7 @@ public class NvidiaBlast : EditorWindow
 
     private void _createPreview(bool makePrefab)
     {
-		// New code added to iterate through the sources in sourceList
+		// New code: Added to iterate through the sources in sourceList
 		foreach (var source in sourceList)
 		{
 			NvBlastExtUnity.setSeed(seed);
