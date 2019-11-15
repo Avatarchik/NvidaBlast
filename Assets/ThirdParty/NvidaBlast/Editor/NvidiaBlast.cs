@@ -70,6 +70,7 @@ public class NvidiaBlast : EditorWindow
         GUILayout.Label("OPTIONS", GUI.skin.box, GUILayout.ExpandWidth(true), GUILayout.MinHeight(32));
         if (GUILayout.Button("Clean Up Objects")) CleanUp();
 
+		// OLD CODE: Replaced by 'sourceList'
         //GUILayout.Space(20);
         //source = EditorGUILayout.ObjectField("Source", source, typeof(GameObject), true) as GameObject;
 
@@ -80,8 +81,7 @@ public class NvidiaBlast : EditorWindow
 		EditorGUILayout.PropertyField(stringsProperty, true); // True means show children
 		so.ApplyModifiedProperties();
 
-		//sourceList = EditorGUILayout.PropertyField(sourceList, new GUIContent("sourceList"), true);
-
+		// OLD CODE: Replaced by 'SourceList'
 		//if (Selection.activeGameObject != null)
   //      {
   //          //hack to not select preview chunks OR Points OR Destructible :)
@@ -144,6 +144,7 @@ public class NvidiaBlast : EditorWindow
 
     private void _createPreview(bool makePrefab)
     {
+		// New code added to iterate through the sources in sourceList
 		foreach (var source in sourceList)
 		{
 			NvBlastExtUnity.setSeed(seed);
