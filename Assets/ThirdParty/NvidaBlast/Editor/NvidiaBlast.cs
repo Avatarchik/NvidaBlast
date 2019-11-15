@@ -144,8 +144,8 @@ public class NvidiaBlast : EditorWindow
 
     private void _createPreview(bool makePrefab)
     {
-		//foreach (var source in sourceList)
-		//{
+		foreach (var source in sourceList)
+		{
 			NvBlastExtUnity.setSeed(seed);
 
 			CleanUp();
@@ -300,7 +300,7 @@ public class NvidiaBlast : EditorWindow
 			cs.transform.rotation = source.transform.rotation;
 
 			UpdatePreview(makePrefab);
-		//}
+		}
 	}
 
     private void _Cutout(NvFractureTool fractureTool, NvMesh mesh)
