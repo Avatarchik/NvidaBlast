@@ -70,8 +70,8 @@ public class NvidiaBlast : EditorWindow
         GUILayout.Label("OPTIONS", GUI.skin.box, GUILayout.ExpandWidth(true), GUILayout.MinHeight(32));
         if (GUILayout.Button("Clean Up Objects")) CleanUp();
 
-        GUILayout.Space(20);
-        source = EditorGUILayout.ObjectField("Source", source, typeof(GameObject), true) as GameObject;
+        //GUILayout.Space(20);
+        //source = EditorGUILayout.ObjectField("Source", source, typeof(GameObject), true) as GameObject;
 
 		ScriptableObject target = this;
 		SerializedObject so = new SerializedObject(target);
@@ -82,20 +82,20 @@ public class NvidiaBlast : EditorWindow
 
 		//sourceList = EditorGUILayout.PropertyField(sourceList, new GUIContent("sourceList"), true);
 
-		if (Selection.activeGameObject != null)
-        {
-            //hack to not select preview chunks OR Points OR Destructible :)
-            if (Selection.activeGameObject.GetComponent<ChunkInfo>() == null && Selection.activeGameObject.hideFlags != HideFlags.NotEditable && Selection.activeGameObject.GetComponent<Destructible>() == null)
-            {
-                if (Selection.activeGameObject.GetComponent<MeshFilter>() != null) source = Selection.activeGameObject;
-                if (Selection.activeGameObject.GetComponentInChildren<SkinnedMeshRenderer>() != null)
-                {
-                    source = Selection.activeGameObject.GetComponentInChildren<SkinnedMeshRenderer>().gameObject;
-                }
-            }
-        }
+		//if (Selection.activeGameObject != null)
+  //      {
+  //          //hack to not select preview chunks OR Points OR Destructible :)
+  //          if (Selection.activeGameObject.GetComponent<ChunkInfo>() == null && Selection.activeGameObject.hideFlags != HideFlags.NotEditable && Selection.activeGameObject.GetComponent<Destructible>() == null)
+  //          {
+  //              if (Selection.activeGameObject.GetComponent<MeshFilter>() != null) source = Selection.activeGameObject;
+  //              if (Selection.activeGameObject.GetComponentInChildren<SkinnedMeshRenderer>() != null)
+  //              {
+  //                  source = Selection.activeGameObject.GetComponentInChildren<SkinnedMeshRenderer>().gameObject;
+  //              }
+  //          }
+  //      }
 
-        if (!source) return;
+  //      if (!source) return;
 
         insideMaterial = (Material)EditorGUILayout.ObjectField("Inside Material", insideMaterial, typeof(Material), false);
 
