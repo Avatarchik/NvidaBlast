@@ -24,7 +24,7 @@ public class NvidiaBlast : EditorWindow
 
     public GameObject point;
 	public GameObject source;
-	//public SerializedProperty sourceList;// = new List<GameObject>();
+	
     public Material insideMaterial;
     public bool islands = false;
     public bool previewColliders = false;
@@ -57,7 +57,9 @@ public class NvidiaBlast : EditorWindow
         Repaint();
     }
 
-    protected void OnGUI()
+	public List<GameObject> sourceList = new List<GameObject>();
+
+	protected void OnGUI()
     {
         if (Application.isPlaying)
         {
@@ -70,7 +72,14 @@ public class NvidiaBlast : EditorWindow
 
         GUILayout.Space(20);
         source = EditorGUILayout.ObjectField("Source", source, typeof(GameObject), true) as GameObject;
-		
+
+		ScriptableObject target = this;
+		SerializedObject so = new SerializedObject(target);
+		SerializedProperty stringsProperty = so.FindProperty("sourceList");
+
+		EditorGUILayout.PropertyField(stringsProperty, true); // True means show children
+		so.ApplyModifiedProperties();
+
 		//sourceList = EditorGUILayout.PropertyField(sourceList, new GUIContent("sourceList"), true);
 
 		if (Selection.activeGameObject != null)
