@@ -4,7 +4,7 @@ using System.Collections;
 
 //[CustomEditor(typeof(MyClass))]
 
-public class BoardEditor : Editor
+public class BoardEditor : MonoBehaviour
 {
 	private SerializedObject m_Object;
 	private SerializedProperty m_Property;
