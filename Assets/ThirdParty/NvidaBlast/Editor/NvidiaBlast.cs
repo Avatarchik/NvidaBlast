@@ -76,6 +76,7 @@ public class NvidiaBlast : EditorWindow
 
 		ScriptableObject target = this;
 		SerializedObject serializedObject = new SerializedObject(target);
+		// We add 'sourceList' to our serialized property (the variable must be the same name)
 		SerializedProperty serializedProperty = serializedObject.FindProperty("sourceList");
 
 		EditorGUILayout.PropertyField(serializedProperty, true); // True means show children
