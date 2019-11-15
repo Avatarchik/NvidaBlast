@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left-Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 5342302807275132246, guid: 6dc575313c1fc5a4fae96c7f72aac1c8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2951985931795447056, guid: 6dc575313c1fc5a4fae96c7f72aac1c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -299,6 +304,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs
       objectReference: {fileID: 0}
+    - target: {fileID: 8952447054283941755, guid: 2f01c517dcbe6d14bac1b3a0632a6c7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6798149399329943261, guid: 2f01c517dcbe6d14bac1b3a0632a6c7d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -418,6 +428,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interior-Wall-Downstairs-Middle
       objectReference: {fileID: 0}
+    - target: {fileID: 4381128593535177498, guid: 3752026333e789b4cad4385062a1772a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4020697797885908688, guid: 3752026333e789b4cad4385062a1772a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -484,7 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 552528543}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: DestructableHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,6 +734,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upstairs
       objectReference: {fileID: 0}
+    - target: {fileID: 4744425030340022001, guid: 39105f42885c08941a46fec85cfbeba0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8659428191927176934, guid: 39105f42885c08941a46fec85cfbeba0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -866,6 +886,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right-Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 1414905979630635597, guid: d79637890a50d8b4380e158debd8b69f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1701864701855696644, guid: d79637890a50d8b4380e158debd8b69f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -934,6 +959,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Back-Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712151981104297371, guid: bd4e050c8cb76f24f882b5ecf08c17eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4003184717598483000, guid: bd4e050c8cb76f24f882b5ecf08c17eb,
         type: 3}
@@ -1134,6 +1164,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Front-Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397886746938055447, guid: cfa0d1314059164428f49454a411836f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2517443123505157243, guid: cfa0d1314059164428f49454a411836f,
         type: 3}

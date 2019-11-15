@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class NvidiaBlast : EditorWindow
@@ -22,7 +23,8 @@ public class NvidiaBlast : EditorWindow
     private FractureTypes fractureType = FractureTypes.Voronoi;
 
     public GameObject point;
-    public GameObject source;
+	public GameObject source;
+	public List<GameObject> sourceList = new List<GameObject>();
     public Material insideMaterial;
     public bool islands = false;
     public bool previewColliders = false;
@@ -131,160 +133,163 @@ public class NvidiaBlast : EditorWindow
 
     private void _createPreview(bool makePrefab)
     {
-        NvBlastExtUnity.setSeed(seed);
+		foreach (var source in sourceList)
+		{
+			NvBlastExtUnity.setSeed(seed);
 
-        CleanUp();
+			CleanUp();
 
-        GameObject cs = new GameObject("CHUNKS");
-        cs.transform.position = Vector3.zero;
-        cs.transform.rotation = Quaternion.identity;
-        cs.transform.localScale = Vector3.one;
+			GameObject cs = new GameObject("CHUNKS");
+			cs.transform.position = Vector3.zero;
+			cs.transform.rotation = Quaternion.identity;
+			cs.transform.localScale = Vector3.one;
 
-        Mesh ms = null;
+			Mesh ms = null;
 
-        Material[] mats = new Material[2];
-        mats[1] = insideMaterial;
+			Material[] mats = new Material[2];
+			mats[1] = insideMaterial;
 
-        MeshFilter mf = source.GetComponent<MeshFilter>();
-        SkinnedMeshRenderer smr = source.GetComponent<SkinnedMeshRenderer>();
+			MeshFilter mf = source.GetComponent<MeshFilter>();
+			SkinnedMeshRenderer smr = source.GetComponent<SkinnedMeshRenderer>();
 
-        if (mf != null)
-        {
-            mats[0] = source.GetComponent<MeshRenderer>().sharedMaterial;
-            ms = source.GetComponent<MeshFilter>().sharedMesh;
-        }
-        if (smr != null)
-        {
-            mats[0] = smr.sharedMaterial;
-            smr.gameObject.transform.position = Vector3.zero;
-            smr.gameObject.transform.rotation = Quaternion.identity;
-            smr.gameObject.transform.localScale = Vector3.one;
-            ms = new Mesh();
-            smr.BakeMesh(ms);
-            //ms = smr.sharedMesh;
-        }
+			if (mf != null)
+			{
+				mats[0] = source.GetComponent<MeshRenderer>().sharedMaterial;
+				ms = source.GetComponent<MeshFilter>().sharedMesh;
+			}
+			if (smr != null)
+			{
+				mats[0] = smr.sharedMaterial;
+				smr.gameObject.transform.position = Vector3.zero;
+				smr.gameObject.transform.rotation = Quaternion.identity;
+				smr.gameObject.transform.localScale = Vector3.one;
+				ms = new Mesh();
+				smr.BakeMesh(ms);
+				//ms = smr.sharedMesh;
+			}
 
-        if (ms == null) return;
+			if (ms == null) return;
 
-        NvMesh mymesh = new NvMesh(ms.vertices, ms.normals, ms.uv, ms.vertexCount, ms.GetIndices(0), (int)ms.GetIndexCount(0));
+			NvMesh mymesh = new NvMesh(ms.vertices, ms.normals, ms.uv, ms.vertexCount, ms.GetIndices(0), (int)ms.GetIndexCount(0));
 
-        //NvMeshCleaner cleaner = new NvMeshCleaner();
-        //cleaner.cleanMesh(mymesh);
+			//NvMeshCleaner cleaner = new NvMeshCleaner();
+			//cleaner.cleanMesh(mymesh);
 
-        NvFractureTool fractureTool = new NvFractureTool();
-        fractureTool.setRemoveIslands(islands);
-        fractureTool.setSourceMesh(mymesh);
+			NvFractureTool fractureTool = new NvFractureTool();
+			fractureTool.setRemoveIslands(islands);
+			fractureTool.setSourceMesh(mymesh);
 
-        if (fractureType == FractureTypes.Voronoi) _Voronoi(fractureTool, mymesh);
-        if (fractureType == FractureTypes.Clustered) _Clustered(fractureTool, mymesh);
-        if (fractureType == FractureTypes.Slicing) _Slicing(fractureTool, mymesh);
-        if (fractureType == FractureTypes.Skinned) _Skinned(fractureTool, mymesh);
-        if (fractureType == FractureTypes.Plane) _Plane(fractureTool, mymesh);
-        if (fractureType == FractureTypes.Cutout) _Cutout(fractureTool, mymesh);
+			if (fractureType == FractureTypes.Voronoi) _Voronoi(fractureTool, mymesh);
+			if (fractureType == FractureTypes.Clustered) _Clustered(fractureTool, mymesh);
+			if (fractureType == FractureTypes.Slicing) _Slicing(fractureTool, mymesh);
+			if (fractureType == FractureTypes.Skinned) _Skinned(fractureTool, mymesh);
+			if (fractureType == FractureTypes.Plane) _Plane(fractureTool, mymesh);
+			if (fractureType == FractureTypes.Cutout) _Cutout(fractureTool, mymesh);
 
-        fractureTool.finalizeFracturing();
+			fractureTool.finalizeFracturing();
 
-        NvLogger.Log("Chunk Count: " + fractureTool.getChunkCount());
+			NvLogger.Log("Chunk Count: " + fractureTool.getChunkCount());
 
-        if (makePrefab)
-        {
-            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast")) AssetDatabase.CreateFolder("Assets/Prefabs", "NvidaBlast");
-            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Chunks")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Chunks");
-            if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Fractured")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Fractured");
+			if (makePrefab)
+			{
+				if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast")) AssetDatabase.CreateFolder("Assets/Prefabs", "NvidaBlast");
+				if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Chunks")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Chunks");
+				if (!AssetDatabase.IsValidFolder("Assets/Prefabs/NvidaBlast/Fractured")) AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast", "Fractured");
 
-			FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvidaBlast/Chunks/" + source.name);
-            AssetDatabase.Refresh();
-            AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast/Chunks", source.name);
-        }
+				FileUtil.DeleteFileOrDirectory("Assets/Prefabs/NvidaBlast/Chunks/" + source.name);
+				AssetDatabase.Refresh();
+				AssetDatabase.CreateFolder("Assets/Prefabs/NvidaBlast/Chunks", source.name);
+			}
 
-        for (int i = 1; i < fractureTool.getChunkCount(); i++)
-        {
-            GameObject ck = new GameObject("Chunk" + i);
-            ck.transform.parent = cs.transform;
-            ck.transform.position = Vector3.zero;
-            ck.transform.rotation = Quaternion.identity;
+			for (int i = 1; i < fractureTool.getChunkCount(); i++)
+			{
+				GameObject ck = new GameObject("Chunk" + i);
+				ck.transform.parent = cs.transform;
+				ck.transform.position = Vector3.zero;
+				ck.transform.rotation = Quaternion.identity;
 
-            MeshFilter ckmf = ck.AddComponent<MeshFilter>();
-            MeshRenderer ckmr = ck.AddComponent<MeshRenderer>();
+				MeshFilter ckmf = ck.AddComponent<MeshFilter>();
+				MeshRenderer ckmr = ck.AddComponent<MeshRenderer>();
 
-            ckmr.sharedMaterials = mats;
+				ckmr.sharedMaterials = mats;
 
-            NvMesh outside = fractureTool.getChunkMesh(i, false);
-            NvMesh inside = fractureTool.getChunkMesh(i, true);
+				NvMesh outside = fractureTool.getChunkMesh(i, false);
+				NvMesh inside = fractureTool.getChunkMesh(i, true);
 
-            Mesh m = outside.toUnityMesh();
-            m.subMeshCount = 2;
-            m.SetIndices(inside.getIndexes(), MeshTopology.Triangles, 1);
-            ckmf.sharedMesh = m;
+				Mesh m = outside.toUnityMesh();
+				m.subMeshCount = 2;
+				m.SetIndices(inside.getIndexes(), MeshTopology.Triangles, 1);
+				ckmf.sharedMesh = m;
 
-            if (makePrefab)
-            {
-                AssetDatabase.CreateAsset(m, "Assets/Prefabs/NvidaBlast/Chunks/" + source.name + "/Chunk" + i + ".asset");
-            }
+				if (makePrefab)
+				{
+					AssetDatabase.CreateAsset(m, "Assets/Prefabs/NvidaBlast/Chunks/" + source.name + "/Chunk" + i + ".asset");
+				}
 
-            if (!makePrefab) ck.AddComponent<ChunkInfo>();
+				if (!makePrefab) ck.AddComponent<ChunkInfo>();
 
-            if (makePrefab || previewColliders)
-            {
-                ck.AddComponent<Rigidbody>();
-                MeshCollider mc = ck.AddComponent<MeshCollider>();
-                //mc.inflateMesh = true;
-                mc.convex = true;
-            }
-        }
+				if (makePrefab || previewColliders)
+				{
+					ck.AddComponent<Rigidbody>();
+					MeshCollider mc = ck.AddComponent<MeshCollider>();
+					//mc.inflateMesh = true;
+					mc.convex = true;
+				}
+			}
 
-        if (makePrefab)
-        {
-			// OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab", cs);
-			GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/Prefabs/NvidaBlast/Fractured/" + source.name + "_fractured.prefab");
+			if (makePrefab)
+			{
+				// OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/Fractured/" + source.name + "_fractured.prefab", cs);
+				GameObject p = PrefabUtility.SaveAsPrefabAsset(cs, "Assets/Prefabs/NvidaBlast/Fractured/" + source.name + "_fractured.prefab");
 
-			// Extra code added to make the destructable mesh work with realistic explosion physics
-			p.layer = LayerMask.AssignDestructable;
-			// Assign the layer to the children (debris)
-			p.ApplyToChildren(child => child.layer = LayerMask.AssignDestructable);
-			p.AddComponent<ExplodeAfterInstantiate>();
-			// Assign the fractured prefab to the 'normal' prefab
-			source.GetComponent<Destructible>().fracturedPrefab = p;
+				// Extra code added to make the destructable mesh work with realistic explosion physics
+				p.layer = LayerMask.AssignDestructable;
+				// Assign the layer to the children (debris)
+				p.ApplyToChildren(child => child.layer = LayerMask.AssignDestructable);
+				p.AddComponent<ExplodeAfterInstantiate>();
+				// Assign the fractured prefab to the 'normal' prefab
+				source.GetComponent<Destructible>().fracturedPrefab = p;
 
-			GameObject fo;
+				GameObject fo;
 
-            bool skinnedMesh = false;
-            if (source.GetComponent<SkinnedMeshRenderer>() != null) skinnedMesh = true;
+				bool skinnedMesh = false;
+				if (source.GetComponent<SkinnedMeshRenderer>() != null) skinnedMesh = true;
 
-            if (skinnedMesh)
-                fo = Instantiate(source.transform.root.gameObject);
-            else
-                fo = Instantiate(source);
+				if (skinnedMesh)
+					fo = Instantiate(source.transform.root.gameObject);
+				else
+					fo = Instantiate(source);
 
-            Destructible d = fo.AddComponent<Destructible>();
-            d.fracturedPrefab = p;
+				Destructible d = fo.AddComponent<Destructible>();
+				d.fracturedPrefab = p;
 
-            bool hasCollider = false;
-            if (fo.GetComponent<MeshCollider>() != null) hasCollider = true;
-            if (fo.GetComponent<BoxCollider>() != null) hasCollider = true;
-            if (fo.GetComponent<SphereCollider>() != null) hasCollider = true;
-            if (fo.GetComponent<CapsuleCollider>() != null) hasCollider = true;
+				bool hasCollider = false;
+				if (fo.GetComponent<MeshCollider>() != null) hasCollider = true;
+				if (fo.GetComponent<BoxCollider>() != null) hasCollider = true;
+				if (fo.GetComponent<SphereCollider>() != null) hasCollider = true;
+				if (fo.GetComponent<CapsuleCollider>() != null) hasCollider = true;
 
-            if (!hasCollider)
-            {
-                BoxCollider bc = fo.AddComponent<BoxCollider>();
-                if (skinnedMesh)
-                {
-                    Bounds b = source.GetComponent<SkinnedMeshRenderer>().bounds;
-                    bc.center = new Vector3(0,.5f,0);
-                    bc.size = b.size;
-                }
-            }
+				if (!hasCollider)
+				{
+					BoxCollider bc = fo.AddComponent<BoxCollider>();
+					if (skinnedMesh)
+					{
+						Bounds b = source.GetComponent<SkinnedMeshRenderer>().bounds;
+						bc.center = new Vector3(0, .5f, 0);
+						bc.size = b.size;
+					}
+				}
 
-            // OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/" + source.name + ".prefab", fo);
-			// This saves out an unessacary prefab so I have commented it out
-			//PrefabUtility.SaveAsPrefabAsset(fo, "Assets/Prefabs/NvidaBlast/" + source.name + ".prefab");
-			DestroyImmediate(fo);
-        }
+				// OLD CODE: PrefabUtility.CreatePrefab("Assets/NvBlast Prefabs/" + source.name + ".prefab", fo);
+				// This saves out an unessacary prefab so I have commented it out
+				//PrefabUtility.SaveAsPrefabAsset(fo, "Assets/Prefabs/NvidaBlast/" + source.name + ".prefab");
+				DestroyImmediate(fo);
+			}
 
-        cs.transform.rotation = source.transform.rotation;
+			cs.transform.rotation = source.transform.rotation;
 
-        UpdatePreview(makePrefab);
+			UpdatePreview(makePrefab);
+		}
 	}
 
     private void _Cutout(NvFractureTool fractureTool, NvMesh mesh)
