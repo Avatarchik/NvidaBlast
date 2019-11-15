@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic; // Import the System.Collections.Generic class to give us access to List<>
 
-public class CustomListAttribute : MonoBehaviour
+public class CustomListAttributeDrawer : MonoBehaviour
 {
 
 	//This is our custom class with our variables
