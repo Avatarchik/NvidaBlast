@@ -70,8 +70,9 @@ public class NvidiaBlast : EditorWindow
 
         GUILayout.Space(20);
         source = EditorGUILayout.ObjectField("Source", source, typeof(GameObject), true) as GameObject;
+		//sourceList = EditorGUILayout.ObjectField("SourceList", sourceList, typeof(Object), true) as GameObject;
 
-        if (Selection.activeGameObject != null)
+		if (Selection.activeGameObject != null)
         {
             //hack to not select preview chunks OR Points OR Destructible :)
             if (Selection.activeGameObject.GetComponent<ChunkInfo>() == null && Selection.activeGameObject.hideFlags != HideFlags.NotEditable && Selection.activeGameObject.GetComponent<Destructible>() == null)
