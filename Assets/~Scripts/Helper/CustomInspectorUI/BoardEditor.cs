@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 
-[CustomEditor(typeof(MyClass))]
+//[CustomEditor(typeof(MyClass))]
 
 public class BoardEditor : Editor
 {
