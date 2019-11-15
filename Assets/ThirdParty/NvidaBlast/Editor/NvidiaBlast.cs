@@ -24,7 +24,7 @@ public class NvidiaBlast : EditorWindow
 
     public GameObject point;
 	public GameObject source;
-	public SerializedProperty sourceList;// = new List<GameObject>();
+	//public SerializedProperty sourceList;// = new List<GameObject>();
     public Material insideMaterial;
     public bool islands = false;
     public bool previewColliders = false;
@@ -71,7 +71,7 @@ public class NvidiaBlast : EditorWindow
         GUILayout.Space(20);
         source = EditorGUILayout.ObjectField("Source", source, typeof(GameObject), true) as GameObject;
 		
-		sourceList = EditorGUILayout.PropertyField(sourceList, new GUIContent("sourceList"), true);
+		//sourceList = EditorGUILayout.PropertyField(sourceList, new GUIContent("sourceList"), true);
 
 		if (Selection.activeGameObject != null)
         {
@@ -135,8 +135,8 @@ public class NvidiaBlast : EditorWindow
 
     private void _createPreview(bool makePrefab)
     {
-		foreach (var source in sourceList)
-		{
+		//foreach (var source in sourceList)
+		//{
 			NvBlastExtUnity.setSeed(seed);
 
 			CleanUp();
@@ -291,7 +291,7 @@ public class NvidiaBlast : EditorWindow
 			cs.transform.rotation = source.transform.rotation;
 
 			UpdatePreview(makePrefab);
-		}
+		//}
 	}
 
     private void _Cutout(NvFractureTool fractureTool, NvMesh mesh)
