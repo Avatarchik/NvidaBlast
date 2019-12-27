@@ -10,7 +10,7 @@ The game features:
 
 - Destructable Meshes
 - Projectile Explosion Forces
-- Updated Fracture Code (enables a list of sources instead of just one at a time)
+- Updated Fracture Code (enables a list of mesh sources instead of just one mesh at a time)
 
 ## Acknowledgements
 
